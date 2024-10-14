@@ -1,13 +1,237 @@
+.fa-instagram {
+  position: absolute;
+  right: 50px;
+  top: 50px;
+  font-size: 70px;
+  color: pink;
+  text-shadow: 0px 0px 10px white;
+
+}
+
+.fa-instagram:hover {
+  transform: rotate(20deg);
+}
 
 
+body {
+  background: url('/IMG/completoOpacidad.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #f0f0f0;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #000;
 
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo {
+  position: absolute;
+  left: 50px;
+  max-width: 100px;
+  display: block;
+  margin: 20px auto;
+  border-radius: 50%;
+  top: 0px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo:hover {
+  filter: brightness(1.3);
+  transform: rotate(2deg);
+}
+
+.mystories {
+  width: 300px;
+  display: block;
+  margin: 30px auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+
+}
+
+
+.mystories:hover {
+  transform: rotate(360deg) scale(1.1);
+}
+
+.todasLasHistorias {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  perspective: 1000px;
+  /* Add perspective for 3D effect */
+}
+
+.todasLasHistorias div {
+  flex: 0 1 calc(25% - 20px);
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #ff69b4;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  opacity: 0;
+  transform: rotateX(0deg) rotateY(0deg);
+  animation: fadeInUp 0.1s forwards, pulse 10s infinite alternate;
+
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 10px 15px rgba(242, 5, 131, 0.3);
+  }
+
+  100% {
+    box-shadow: 0 10px 30px rgba(242, 5, 131, 0.7);
+  }
+}
+
+.todasLasHistorias div:hover {
+  transform: rotateX(10deg) rotateY(10deg) scale(1.05);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.todasLasHistorias img {
+  width: 100%;
+  border-bottom: 2px solid #ff69b4;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  animation: imageZoom 1s ease-in-out;
+}
+
+@keyframes imageZoom {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.todasLasHistorias div:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.3) blur(1px);
+}
+
+.todasLasHistorias span {
+  height: 100%;
+  display: block;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #ff69b4;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  font-size: 1.2em;
+  /* Tamaño de texto más grande */
+}
+
+.todasLasHistorias div:hover span {
+  background-color: #000;
+  color: #ff0099;
+  transform: translateY(-10px);
+  animation: textPulse 1s infinite alternate;
+}
+
+@keyframes textPulse {
+  0% {
+    color: #ff69b4;
+  }
+
+  100% {
+    color: #ff0099;
+  }
+}
+
+/* Efectos de Desplazamiento */
+
+.todasLasHistorias div {
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  will-change: transform, filter;
+}
+
+.todasLasHistorias div.in-view {
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Efectos del Cursor */
+
+body {
+  cursor: url('/IMG/cursor.png'), auto;
+  /* Cambiar el cursor */
+}
+
+.todasLasHistorias div:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+  animation: ripple 1.5s infinite;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.todasLasHistorias div:hover {
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.7);
+}
 
 .firefly {
   position: fixed;
   left: 50%;
   top: 50%;
-  width: 0.4vw;
-  height: 0.4vw;
+  width: 1vw;
+  height: 1vw;
   margin: -0.2vw 0 0 9.8vw;
   animation: ease 200s alternate infinite;
   pointer-events: none;
@@ -24,7 +248,7 @@
 }
 
 .firefly::before {
-  background: black;
+  background: rgb(255, 255, 255);
   opacity: 0.4;
   animation: drift ease alternate infinite;
 }
@@ -1701,207 +1925,50 @@
     box-shadow: 0 0 2vw 0.4vw yellow;
   }
 }
-header{
-  width: 100%;
-  height: 40px;
-}
-body {
-  background: url('/IMG/completoOpacidad.png') no-repeat center center fixed;
-  background-size: cover;
-  color: #f0f0f0;
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  background-color: #000;
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-}
-
-
-.logo {
-  max-width: 100px;
-  border-radius: 50%;
-  padding: 20px;
-  margin: 20px;
-}
-
-.logo:hover {
-  transform: scale(1.1);
-  filter: brightness(1.3);
-}
-
-.zaloaauthor {
-  display: none;
-}
-
-.zaloaauthor:hover {
-  transform: scale(1.1);
-}
-
-main {
-  padding: 30px;
-  max-width: 800px;
-  margin: 20px auto;
-  background-color: #222;
-  border: 2px solid #ff007f;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-h1 {
-  margin-top: 0;
-  color: #ff007f;
-  font-size: 2.5em;
-  text-align: center;
-  animation: fadeIn 1s ease-out;
-}
-
-form {
-  margin-bottom: 20px;
-}
-
-label {
-  display: block;
-  margin: 15px 0 5px;
-  color: white;
-  font-weight: bold;
-}
-
-input[type="text"],
-input[type="email"],
-select {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 2px solid #ff007f;
-  border-radius: 8px;
-  box-sizing: border-box;
-  background-color: #333;
-  color: #fff;
-  font-size: 16px;
-  transition: border-color 0.3s ease;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-select:focus {
-  border-color: #6907e0;
-  outline: none;
-}
-
-button {
-  padding: 12px 24px;
-  background-color: #ff007f;
-  color: #fff;
-  border: 2px solid #6907e0;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 18px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-button:hover {
-  background-color: #e60077;
-  transform: scale(1.05);
-}
-
-
-
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-.imagenes {
-  position: absolute;
-
-}
-
-.imagenchica {
-  border-radius: 25px;
-  position: absolute;
-  top: -370px;
-  left: -320px;
-  box-shadow: 0px 0px 50px white;
-  width: 250px;
-}
-
-.imagenchico {
-  position: absolute;
-  top: -400px;
-  left: 860px;
-  box-shadow: 0px 0px 50px white;
-  border-radius: 25px;
-  width: 250px;
-}
-
-
-* {
-  font-family: 'Poppins';
-}
-
-.fa-instagram {
-  position: absolute;
-  right: 50px;
-  top: 50px;
-  font-size: 70px;
-  color: pink;
-  text-shadow: 0px 0px 10px white;
-
-}
-
-.fa-instagram:hover {
-transform: rotate(20deg);
-}
-
-/* ------------------------------------AQUI----------------------------------------- */
 
 
 @media (max-width: 768px) {
+
+  /* Ajustar el contenedor de las historias */
+  .todasLasHistorias {
+    width: 70%;
+    box-sizing: border-box;
+    padding: 10px; /* Añadir algo de espacio alrededor */
+    display: flex;
+    flex-direction: column; /* Alinear las historias en columna */
+    align-items: center; /* Centrar horizontalmente */
+    justify-content:center ;
+    margin-left: 60px;
+    margin-top: 70px;
+  }
+
+
+  /* Ajustar el tamaño de las imágenes en las historias */
+  .todasLasHistorias a img {
+    width: 100%; /* Asegurar que la imagen ocupe el 100% del contenedor */
+    height: auto; /* Mantener la proporción */
+  }
+
+  /* Ajustar el tamaño y centrado del logo */
   .logo {
-    max-width: 80px;
-    padding: 10px;
-  }
-
-
-  main {
-    padding: 20px;
-    max-width: 90%;
-  }
-
-  h1 {
-    font-size: 2em;
-  }
-
-main{
-  width: 100%;
-  height: auto;
-  margin-top: 100px;
-  box-sizing: border-box;
-}
-
-.fa-instagram {
-position: absolute;
-top: 40px;
-  }
-
-  .zaloaauthor {
-    display: inline;
     position: absolute;
-    width: 200px;
-    top: 50px;
+    left: 60px;
+    top: 20px;
+    transform: translateX(-50%); /* Centrar horizontalmente */
+    max-width: 80px; /* Ajustar el tamaño del logo */
+    margin: 0; /* Eliminar márgenes */
   }
-  
 
+  /* Ajustar el tamaño y posición del icono de Instagram */
+  .fa-instagram {
+    right: 60px;
+    top: 40px;
+    font-size: 50px; /* Ajustar el tamaño del icono */
+  }
+
+  /* Ajustar el tamaño del elemento mystories */
+  .mystories {
+    width: 150px;
+    margin: 20px auto; /* Centrar el elemento */
+  }
 }
